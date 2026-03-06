@@ -5,8 +5,8 @@ class Data{
 
 private $nome="";
 
-public function setNome($nome){
-$this->nome = $n;
+public function setNome($n){
+    $this->nome = $n;
 
 }
 
