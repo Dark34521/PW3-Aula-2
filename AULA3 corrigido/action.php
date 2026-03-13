@@ -27,14 +27,32 @@ public function atualizar(Data $data): void {
     $bd = new Conexao();
     $con = $bd->getConexao();
        
-    $sql ="update pessoa set nome_pessoa=? where id_pessoa=?";
+    $sql ="update pessoa set nome=? where id=?";
     $stm = $con->prepare(query:$sql);
     $stm->bindValue(1, $data->getNome());
-    $stm->bindValue(2, "id");
+    $stm->bindValue(2, value: "Id");
     $return = $stm->execute();
     
 if($return){
-    echo "cadastrado com sucesso";
+    echo "atualizado com sucesso";
+}else{
+    echo"erro";
+    }
+
+}
+
+public function deletar(Data $data): void {
+    
+    $bd = new Conexao();
+    $con = $bd->getConexao();
+       
+    $sql ="delete from pessoa where nome_pessoa=?";
+    $stm = $con->prepare(query:$sql);
+    $stm->bindValue(1, $data->getNome());
+    $return = $stm->execute();
+    
+if($return){
+    echo "deletado com sucesso";
 }else{
     echo"erro";
     }
